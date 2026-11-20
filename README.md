@@ -77,6 +77,28 @@ The Cards section provides tools for creating personalized cards from pre-design
 
 ---
 
+## **Go Client**
+A Go client for the handwriting API lives in [`go-client/`](./go-client). It
+supports streaming generation, SVG/PDF generation and SVG-to-PDF conversion.
+
+```go
+import penman "penman-client"
+
+client := penman.NewClient(penman.DefaultBaseURL)
+svg, err := client.GenerateSimple(penman.SimpleHandwritingRequest{
+    TextInput:   "Hello from Go!",
+    Style:       0,
+    Bias:        1.5,
+    StrokeWidth: 2,
+    StrokeColor: "#000000",
+})
+```
+
+See [`go-client/README.md`](./go-client/README.md) for the full API and streaming
+example.
+
+---
+
 ## **API Documentation**
 Detailed documentation for the Penman API is available [here](./public/API.md).
 
